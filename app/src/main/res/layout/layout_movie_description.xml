@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="descriptionExpanded"
+            type="Boolean"
+            android:value="false"
+            />
+        <variable
+            name="data"
+            type="me.naingaungluu.codetest.data.models.domain.Movie" />
+        <import type="android.view.View" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorBackground"
+        android:animateLayoutChanges="true"
+        >
+
+        <TextView
+            android:id="@+id/tvDescription"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@{data.description}"
+            android:lineSpacingExtra="8dp"
+            android:letterSpacing="0.04"
+            android:maxLines="@{descriptionExpanded ? Integer.MAX_VALUE : 3}"
+            android:ellipsize="end"
+            android:textColor="@color/colorTextBold"
+            android:textSize="@dimen/text_size_medium_1x"
+            android:textAlignment="center"
+            android:animateLayoutChanges="true"
+            android:paddingStart="@dimen/margin_medium_2x"
+            android:paddingEnd="@dimen/margin_medium_2x"
+            android:paddingBottom="@dimen/margin_medium_1x"
+            android:layout_marginTop="@dimen/margin_medium_1x"
+            android:layout_marginBottom="@dimen/margin_medium_1x"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="@string/dummy_movie_description"
+            />
+
+
+        <TextView
+            android:id="@+id/btnReadMore"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{descriptionExpanded ? @string/btn_read_less : @string/btn_read_more}"
+            android:textColor="@color/colorPrimary"
+            android:textSize="@dimen/text_size_medium_2x"
+            android:padding="@dimen/margin_small_1x"
+            android:layout_marginBottom="@dimen/margin_medium_2x"
+            android:visibility="@{data.description.length() > 150 ? View.VISIBLE : View.GONE }"
+            app:layout_constraintStart_toStartOf="@id/tvDescription"
+            app:layout_constraintEnd_toEndOf="@id/tvDescription"
+            app:layout_constraintTop_toBottomOf="@id/tvDescription"
+            app:layout_constraintBottom_toBottomOf="parent"
+            tools:ignore="UseCompatTextViewDrawableXml"
+            tools:text="@string/btn_read_more"
+            />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

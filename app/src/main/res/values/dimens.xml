@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!--    margins-->
+    <dimen name="margin_mini_1x">2dp</dimen>
+    <dimen name="margin_mini_2x">4dp</dimen>
+    <dimen name="margin_small_1x">8dp</dimen>
+    <dimen name="margin_small_2x">12dp</dimen>
+    <dimen name="margin_medium_1x">16dp</dimen>
+    <dimen name="margin_medium_2x">24dp</dimen>
+    <dimen name="margin_medium_3x">32dp</dimen>
+    <dimen name="margin_medium_4x">48dp</dimen>
+    <dimen name="margin_large_1x">56dp</dimen>
+    <dimen name="margin_large_2x">64dp</dimen>
+
+    <!--    Text Size-->
+    <dimen name="text_size_small_1x">10sp</dimen>
+    <dimen name="text_size_small_2x">12sp</dimen>
+    <dimen name="text_size_medium_1x">14sp</dimen>
+    <dimen name="text_size_medium_2x">16sp</dimen>
+    <dimen name="text_size_medium_3x">18sp</dimen>
+    <dimen name="text_size_large_1x">22sp</dimen>
+
+    <!--    Corner Radius-->
+    <dimen name="corner_radius_small">5dp</dimen>
+    <dimen name="corner_radius_medium">10dp</dimen>
+    <dimen name="corner_radius_large">15dp</dimen>
+
+    <!--    Dimensions-->
+    <dimen name="dimen_16">16dp</dimen>
+    <dimen name="dimen_24">24dp</dimen>
+    <dimen name="dimen_32">32dp</dimen>
+    <dimen name="dimen_48">48dp</dimen>
+    <dimen name="dimen_64">64dp</dimen>
+
+    <!--    Misc-->
+    <dimen name="match_constraint">0dp</dimen>
+
+
+</resources>

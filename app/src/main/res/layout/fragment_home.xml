@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:bind="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+    </data>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <include
+                android:id="@+id/layoutToolbar"
+                layout="@layout/layout_toolbar" />
+
+            <include
+                android:id="@+id/layoutUpcomingMovies"
+                layout="@layout/layout_movie_carousel"
+                bind:sectionTitle="@{@string/section_title_upcoming_movies}"
+                />
+
+            <include
+                android:id="@+id/layoutPopularMovies"
+                layout="@layout/layout_movie_carousel"
+                bind:sectionTitle="@{@string/section_title_popular_movies}"
+                />
+
+        </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
+</layout>

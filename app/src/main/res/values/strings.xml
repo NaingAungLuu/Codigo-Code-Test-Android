@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">Code Test</string>
+    <string name="tv_toolbar_description">Let\'s find your favourite movie</string>
+    <string name="tv_toolbar_title">Explore</string>
+
+    <string name="section_title_upcoming_movies">Upcoming Movies</string>
+    <string name="section_title_popular_movies">Popular Movies</string>
+    <string name="btn_read_more">Read More</string>
+    <string name="btn_read_less">Read Less</string>
+
+    <string name="tv_rating_movie_details">%s /10</string>
+
+    <string name="tooltip_movie_cover_image">Movie Cover Image</string>
+    <string name="dummy_movie_name">Shang-chi : The Legend of the Ten Rings</string>
+    <string name="dummy_movie_description">This is a description of a very inteeresting movie by another famous director featuring very famous actors in famous film locations</string>
+    <string name="tooltip_add_to_favourites">Add to Favourites</string>
+</resources>

@@ -1,0 +1,23 @@
+buildscript {
+    repositories {
+        google()
+        mavenCentral()
+    }
+    dependencies {
+        classpath "com.android.tools.build:gradle:7.0.2"
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:1.5.31"
+
+        //Advanced Versioning
+        classpath 'me.moallemi.gradle:advanced-build-version:1.7.4'
+
+        //Jetpack Navigation Safeargs
+        classpath "androidx.navigation:navigation-safe-args-gradle-plugin:2.3.5"
+
+        //Hilt DI
+        classpath 'com.google.dagger:hilt-android-gradle-plugin:2.38.1'
+    }
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}

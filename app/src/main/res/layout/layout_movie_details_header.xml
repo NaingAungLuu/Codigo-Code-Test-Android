@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:bind="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="data"
+            type="me.naingaungluu.codetest.data.models.domain.Movie" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorBackground">
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cvMovieCover"
+            android:layout_width="150dp"
+            android:layout_height="200dp"
+            android:layout_marginTop="@dimen/margin_medium_1x"
+            android:clickable="true"
+            android:elevation="0dp"
+            android:focusable="true"
+            android:translationY="0dp"
+            app:cardCornerRadius="@dimen/corner_radius_medium"
+            app:cardElevation="0dp"
+            app:cardMaxElevation="0dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:rippleColor="@color/colorPrimary"
+            tools:src="@drawable/ic_launcher_background">
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:id="@+id/ivMovieCover"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:contentDescription="@string/tooltip_movie_cover_image"
+                    android:scaleType="centerCrop"
+                    bind:imageUrl="@{data.coverImageUrl}"
+                    android:transitionName="transition_movie_poster"/>
+
+            </FrameLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+
+        <TextView
+            android:id="@+id/tvMovieTitle"
+            android:layout_width="@dimen/match_constraint"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_large_1x"
+            android:layout_marginTop="@dimen/margin_medium_3x"
+            android:layout_marginEnd="@dimen/margin_large_1x"
+            android:text="@{data.title}"
+            android:letterSpacing="0.04"
+            android:textAlignment="center"
+            android:textColor="@color/colorTextBold"
+            android:textSize="@dimen/text_size_large_1x"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/cvMovieCover" />
+
+        <TextView
+            android:id="@+id/tvRating"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_mini_2x"
+            android:layout_marginTop="@dimen/margin_medium_2x"
+            android:background="@drawable/bg_rating_text"
+            android:drawablePadding="@dimen/margin_small_1x"
+            android:gravity="center"
+            android:paddingStart="@dimen/margin_small_1x"
+            android:paddingTop="@dimen/margin_mini_2x"
+            android:paddingEnd="@dimen/margin_small_1x"
+            android:paddingBottom="@dimen/margin_mini_2x"
+            android:text="@{@string/tv_rating_movie_details(Double.toString(data.rating))}"
+            android:textColor="@color/colorTextMedium"
+            android:textSize="@dimen/text_size_medium_3x"
+            android:textStyle="bold"
+            app:drawableStartCompat="@drawable/ic_rating"
+            app:drawableTint="@color/colorPrimary"
+            app:layout_constraintEnd_toStartOf="@+id/tvReleaseDate"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvMovieTitle"
+            tools:text="7.8 /10" />
+
+        <TextView
+            android:id="@+id/tvReleaseDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_rating_text"
+            android:drawablePadding="@dimen/margin_small_1x"
+            android:gravity="center"
+            android:paddingStart="@dimen/margin_small_2x"
+            android:paddingTop="@dimen/margin_mini_2x"
+            android:paddingEnd="@dimen/margin_small_2x"
+            android:paddingBottom="@dimen/margin_mini_2x"
+            android:text="@{data.releaseDate}"
+            android:textColor="@color/colorTextMedium"
+            android:textSize="@dimen/text_size_medium_3x"
+            android:textStyle="bold"
+            android:layout_marginStart="@dimen/margin_medium_2x"
+            app:layout_constraintBottom_toBottomOf="@id/tvRating"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/tvRating"
+            app:layout_constraintTop_toTopOf="@id/tvRating"
+            tools:text="2021-12-1" />
+
+        <TextView
+            android:id="@+id/tvGenres"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_large_1x"
+            android:layout_marginTop="@dimen/margin_medium_1x"
+            android:layout_marginEnd="@dimen/margin_large_1x"
+            android:text="@{data.genres}"
+            android:textAlignment="center"
+            android:textColor="@color/colorTextMedium"
+            android:textSize="@dimen/text_size_medium_3x"
+            android:textStyle="bold"
+            android:layout_marginBottom="@dimen/margin_medium_2x"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvRating"
+            app:layout_constraintBottom_toBottomOf="parent"
+            />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

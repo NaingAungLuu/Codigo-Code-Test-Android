@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="sectionTitle"
+            type="String" />
+        <variable
+            name="isLoading"
+            type="Boolean"
+            android:value="false"
+            />
+        <import type="android.view.View"/>
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorBackground">
+
+
+        <TextView
+            android:id="@+id/tvSectionTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{sectionTitle}"
+            android:textStyle="bold"
+            android:textSize="@dimen/text_size_medium_2x"
+            android:textColor="@color/colorTextBold"
+            android:layout_marginTop="@dimen/margin_medium_1x"
+            android:layout_marginStart="@dimen/margin_medium_2x"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Upcoming Movies"
+            />
+
+        <ProgressBar
+            android:id="@+id/progressBar"
+            android:layout_width="@dimen/dimen_24"
+            android:layout_height="@dimen/dimen_24"
+            android:layout_marginEnd="@dimen/margin_medium_2x"
+            android:indeterminateTint="@color/colorPrimary"
+            android:indeterminate="true"
+            app:layout_constraintTop_toTopOf="@id/tvSectionTitle"
+            app:layout_constraintBottom_toBottomOf="@id/tvSectionTitle"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:visibility="@{isLoading ? View.VISIBLE : View.GONE}"
+            />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvMovies"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_medium_1x"
+            android:orientation="horizontal"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvSectionTitle"
+            tools:listitem="@layout/item_movie"
+            tools:itemCount="5"
+            tools:orientation="horizontal"
+            />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

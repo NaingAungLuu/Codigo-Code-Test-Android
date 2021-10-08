@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:bind="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="data"
+            type="me.naingaungluu.codetest.data.models.domain.Movie" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/colorBackground">
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cvMovieCover"
+            android:layout_width="150dp"
+            android:layout_height="200dp"
+            app:cardCornerRadius="@dimen/corner_radius_medium"
+            android:elevation="0dp"
+            app:cardElevation="0dp"
+            app:cardMaxElevation="0dp"
+            android:translationY="0dp"
+            android:clickable="true"
+            android:focusable="true"
+            app:rippleColor="@color/colorPrimary"
+            android:layout_margin="@dimen/margin_medium_1x"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:id="@+id/ivMovieCover"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scaleType="centerCrop"
+                    android:contentDescription="@string/tooltip_movie_cover_image"
+                    bind:imageUrl="@{data.coverImageUrl}"
+                    android:transitionName="transition_movie_poster"
+                    />
+
+                <ImageView
+                    android:id="@+id/btnFavourite"
+                    android:layout_width="@dimen/dimen_32"
+                    android:layout_height="@dimen/dimen_32"
+                    android:src="@{data.favourite ? @drawable/ic_rating : @drawable/ic_rating_outlined}"
+                    android:layout_gravity="end|top"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:layout_margin="@dimen/margin_small_1x"
+                    app:tint="@color/color_tint_btn_favourite"
+                    android:contentDescription="@string/tooltip_add_to_favourites" />
+
+            </FrameLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+
+        <TextView
+            android:id="@+id/tvMovieTitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@{data.title}"
+            android:textSize="@dimen/text_size_medium_2x"
+            android:textStyle="bold"
+            android:textColor="@color/colorTextBold"
+            android:textAlignment="center"
+            android:maxLines="2"
+            android:ellipsize="end"
+            android:layout_marginTop="@dimen/margin_medium_1x"
+            android:layout_marginStart="@dimen/margin_medium_1x"
+            android:layout_marginEnd="@dimen/margin_small_1x"
+            android:layout_marginBottom="@dimen/margin_medium_1x"
+            app:layout_constraintTop_toBottomOf="@id/cvMovieCover"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            tools:text="@string/dummy_movie_name"
+            />
+
+        <TextView
+            android:id="@+id/tvRating"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{Double.toString(data.rating)}"
+            android:textStyle="bold"
+            android:textSize="@dimen/text_size_medium_1x"
+            android:textColor="@color/colorTextMedium"
+            android:gravity="center"
+            app:drawableStartCompat="@drawable/ic_rating"
+            app:drawableTint="@color/colorPrimary"
+            android:background="@drawable/bg_rating_text"
+            android:paddingBottom="@dimen/margin_mini_1x"
+            android:paddingTop="@dimen/margin_mini_1x"
+            android:paddingStart="@dimen/margin_mini_2x"
+            android:paddingEnd="@dimen/margin_small_1x"
+            android:layout_marginStart="@dimen/margin_mini_2x"
+            android:layout_marginTop="@dimen/margin_small_2x"
+            android:layout_marginBottom="@dimen/margin_medium_1x"
+            app:layout_constraintTop_toBottomOf="@id/tvMovieTitle"
+            app:layout_constraintEnd_toEndOf="@id/cvMovieCover"
+            app:layout_constraintBottom_toBottomOf="parent"
+            tools:text="7.8"
+            />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
